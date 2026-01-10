@@ -13,6 +13,8 @@
 #include "applib/battery_state_service_private.h"
 #include "applib/bluetooth/ble_app_support.h"
 #include "applib/compass_service_private.h"
+#include "applib/connection_rssi_service.h"
+#include "applib/connection_rssi_service_private.h"
 #include "applib/connection_service.h"
 #include "applib/connection_service_private.h"
 #include "applib/graphics/gtypes.h"
@@ -113,6 +115,8 @@ PluginServiceState *app_state_get_plugin_service(void);
 LogState *app_state_get_log_state(void);
 
 BatteryStateServiceState *app_state_get_battery_state_service_state(void);
+
+ConnectionRSSIServiceState *app_state_get_connection_rssi_service_state(void);
 
 TickTimerServiceState *app_state_get_tick_timer_service_state(void);
 

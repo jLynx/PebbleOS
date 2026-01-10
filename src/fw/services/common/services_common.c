@@ -19,6 +19,7 @@
 #include "services/common/comm_session/app_session_capabilities.h"
 #include "services/common/comm_session/default_kernel_sender.h"
 #include "services/common/comm_session/session.h"
+#include "services/common/connection_rssi_monitor.h"
 #include "services/common/cron.h"
 #include "services/common/firmware_update.h"
 #include "services/common/hrm/hrm_manager.h"
@@ -49,6 +50,7 @@ void services_common_init(void) {
   comm_session_init();
 
   bt_ctl_init();
+  connection_rssi_monitor_init();
 
 #if CAPABILITY_HAS_TOUCHSCREEN
   touch_init();

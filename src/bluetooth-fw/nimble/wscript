@@ -19,4 +19,5 @@ def build(bld):
           'fw_includes',
           'root_includes',
         ],
+        export_includes=['.'],
     )

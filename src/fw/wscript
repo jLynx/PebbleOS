@@ -403,6 +403,7 @@ def _link_firmware(bld, sources):
             'freertos',
             'fw_services',
             'gcc',
+            'nimble',
             'proto_schemas',
             'jerry_core',
             'jerry_libm',
@@ -793,7 +794,8 @@ def build(bld):
 
     bld(export_includes=['.',
                          'applib/vendor/uPNG',
-                         'applib/vendor/tinflate'],
+                         'applib/vendor/tinflate',
+                         '..'],
         use=fw_includes_use,
         name='fw_includes')
 

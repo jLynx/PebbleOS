@@ -31,6 +31,8 @@ typedef struct {
 
   BatteryStateServiceState battery_state_service_state;
 
+  ConnectionRSSIServiceState connection_rssi_service_state;
+
   TickTimerServiceState tick_timer_service_state;
 
   ConnectionServiceState connection_service_state;
@@ -56,6 +58,8 @@ void worker_state_init(void) {
   plugin_service_state_init(worker_state_get_plugin_service());
 
   battery_state_service_state_init(worker_state_get_battery_state_service_state());
+
+  connection_rssi_service_state_init(worker_state_get_connection_rssi_service_state());
 
   connection_service_state_init(worker_state_get_connection_service_state());
 
@@ -111,6 +115,10 @@ LogState *worker_state_get_log_state(void) {
 
 BatteryStateServiceState *worker_state_get_battery_state_service_state(void) {
   return &s_worker_state_ptr->battery_state_service_state;
+}
+
+ConnectionRSSIServiceState *worker_state_get_connection_rssi_service_state(void) {
+  return &s_worker_state_ptr->connection_rssi_service_state;
 }
 
 TickTimerServiceState *worker_state_get_tick_timer_service_state(void) {

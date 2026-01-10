@@ -127,6 +127,7 @@ typedef enum {
   PEBBLE_APP_CACHE_EVENT,
   PEBBLE_ACTIVITY_EVENT,
   PEBBLE_WORKOUT_EVENT,
+  PEBBLE_CONNECTION_RSSI_EVENT,
 
   PEBBLE_NUM_EVENTS
 } PebbleEventType;
@@ -746,6 +747,11 @@ typedef struct PebbleWorkoutEvent {
   PebbleWorkoutEventType type;
 } PebbleWorkoutEvent;
 
+typedef struct PACKED { // 2 bytes
+  int8_t rssi;
+  bool is_connected;
+} PebbleConnectionRSSIEvent;
+
 
 typedef struct PACKED {
   union PACKED {
@@ -809,6 +815,7 @@ typedef struct PACKED {
     PebbleAppCacheEvent app_cache_event;
     PebbleActivityEvent activity_event;
     PebbleWorkoutEvent workout;
+    PebbleConnectionRSSIEvent connection_rssi;
   };
   PebbleTaskBitset task_mask;  // 1 == filter out, 0 == leave in
   // NOTE: we put this 8 bit field at the end so that we can pack this structure and still keep the

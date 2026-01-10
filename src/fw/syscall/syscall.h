@@ -12,6 +12,7 @@
 #include "applib/app_watch_info.h"
 #include "applib/app_worker.h"
 #include "applib/bluetooth/ble_client.h"
+#include "applib/connection_rssi_service.h"
 #include "applib/data_logging.h"
 #include "applib/event_service_client.h"
 #include "applib/fonts/fonts.h"
@@ -179,6 +180,8 @@ bool sys_clock_is_24h_style(void);
 int sys_strftime(char* s, size_t maxsize, const char* format, const struct tm* tim_p, char *locale);
 
 BatteryChargeState sys_battery_get_charge_state(void);
+
+ConnectionRSSIState sys_connection_rssi_peek(void);
 
 bool sys_activity_get_metric(ActivityMetric metric, uint32_t history_len, int32_t *history);
 bool sys_activity_get_minute_history(HealthMinuteData *minute_data, uint32_t *num_records,

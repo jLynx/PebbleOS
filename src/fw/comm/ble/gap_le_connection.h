@@ -139,6 +139,9 @@ typedef struct GAPLEConnection {
   GAPLEConnectRequestParams *connection_parameter_sets;
 
   RtcTicks ticks_since_connection;
+
+  //! Cached RSSI value for this connection (in dBm)
+  int8_t last_rssi;
 } GAPLEConnection;
 
 
