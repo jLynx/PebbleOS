@@ -31,6 +31,7 @@
 #include "services/common/evented_timer.h"
 #include "services/normal/activity/activity.h"
 #include "services/normal/app_glances/app_glance_service.h"
+#include "services/normal/music.h"
 
 #include "process_management/pebble_process_info.h"
 
@@ -112,6 +113,24 @@ void sys_app_log(size_t length, void *log_buffer);
 void sys_event_service_client_subscribe(EventServiceInfo *handler);
 void sys_event_service_client_unsubscribe(EventServiceInfo *state, EventServiceInfo *handler);
 void sys_event_service_cleanup(PebbleEvent *e);
+
+void sys_music_get_now_playing(char *title, char *artist, char *album);
+bool sys_music_has_now_playing(void);
+bool sys_music_get_player_name(char *player_name_out);
+uint32_t sys_music_get_ms_since_pos_last_updated(void);
+void sys_music_get_pos(uint32_t *track_pos_ms, uint32_t *track_length_ms);
+int32_t sys_music_get_playback_rate_percent(void);
+uint8_t sys_music_get_volume_percent(void);
+MusicPlayState sys_music_get_playback_state(void);
+bool sys_music_is_playback_state_reporting_supported(void);
+bool sys_music_is_progress_reporting_supported(void);
+bool sys_music_is_volume_reporting_supported(void);
+void sys_music_command_send(MusicCommand command);
+bool sys_music_is_command_supported(MusicCommand command);
+bool sys_music_needs_user_to_start_playback_on_phone(void);
+void sys_music_request_reduced_latency(bool reduced_latency);
+void sys_music_request_low_latency_for_period(uint32_t period_seconds);
+const char * sys_music_get_connected_server_debug_name(void);
 
 int sys_ble_scan_start(void);
 int sys_ble_scan_stop(void);

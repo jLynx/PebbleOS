@@ -21,6 +21,7 @@
 #include "syscall/syscall_internal.h"
 #include "system/passert.h"
 #include "util/attributes.h"
+#include "util/list.h"
 #include "tinymt32.h"
 
 #include <string.h>
@@ -197,6 +198,10 @@ NOINLINE void app_state_init(void) {
   graphics_context_init(&s_app_state_ptr->graphics_context,
                         &s_app_state_ptr->framebuffer, init_mode);
 
+  // Initialize event service state list nodes
+  list_init(&s_app_state_ptr->app_outbox_subscription_info.list_node);
+  list_init(&s_app_state_ptr->event_service_state.list_node);
+  list_init(&s_app_state_ptr->wakeup_event_info.list_node);
 
 #if !defined(PLATFORM_TINTIN)
   ble_init_app_state();

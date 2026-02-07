@@ -151,7 +151,7 @@ typedef enum {
 // sdk.major:0x5 .minor:0x56 -- Add PlatformType enum and defines (rev 89)
 
 #define PROCESS_INFO_CURRENT_SDK_VERSION_MAJOR 0x5
-#define PROCESS_INFO_CURRENT_SDK_VERSION_MINOR 0x56
+#define PROCESS_INFO_CURRENT_SDK_VERSION_MINOR 0x57
 
 // The first SDK to ship with 2.x APIs
 #define PROCESS_INFO_FIRST_2X_SDK_VERSION_MAJOR 0x4

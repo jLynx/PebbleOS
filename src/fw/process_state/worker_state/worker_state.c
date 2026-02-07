@@ -9,6 +9,7 @@
 #include "syscall/syscall.h"
 #include "tinymt32.h"
 #include "util/attributes.h"
+#include "util/list.h"
 
 typedef struct {
   Heap heap;
@@ -50,6 +51,9 @@ bool worker_state_configure(MemorySegment *worker_state_ram) {
 
 void worker_state_init(void) {
   s_worker_state_ptr->rand_seed.mat1 = 0; // Uninitialized
+
+  // Initialize event service state list node
+  list_init(&s_worker_state_ptr->event_service_state.list_node);
 
   accel_service_state_init(worker_state_get_accel_state());
 
